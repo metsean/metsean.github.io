@@ -81,7 +81,8 @@ $$
 
 where $$\Theta(i-1,i+1)$$ represents random directions in each wind direction bin. E.g. for the northerly bin, the direction angles are randomly distributed between -11.25 and 11.25 degrees bearing.
 
-Random variates can then be generated computationally using the follow function:
+Random variates can then be generated computationally using the function below. This generates 1 years worth of wind data (8760 hours).
+
 ```python
 def generateWindData(windModel):
     dirn=windModel['directions']
@@ -106,7 +107,6 @@ def generateWindData(windModel):
     W=W[1:,:] # drop initialise entry
     return (W)
 ```
-This function generates 1 years worth of wind data (8760 hours).
 
 The quality of the statistical model can be well judged by comparing the observational ‘raw’ wind record against the model. This is shown below. The distribution of velocities and directions is very similar for the two plots. The scaling for the raw data is different because there is a 16 year record whereas the model is normalised for 1 year. The statistical model looks like a very good approximation.
 
