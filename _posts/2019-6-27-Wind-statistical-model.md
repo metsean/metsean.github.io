@@ -18,7 +18,7 @@ By eye, the Weibull distribution does a good job of describing the data. The obv
 The statistical model used to generate wind speed and direction data is:
 $$
 \begin{align*}
-  & W = \sum_{i=N}^S\left(v(c_i,loc_i,scale_i)f_iX(i-1,i+1)\right)
+  & W = \sum_{i=N}^S\left(v(c_i,loc_i,scale_i)f_i,\Theta(i-1,i+1)\right)
 \end{align*}
 $$
 
@@ -52,6 +52,6 @@ The quality of the statistical model can be well judged by comparing the observa
 
 A further comparison can be made by ignoring the direction data and comparing only the distribution of wind speeds. This is shown below for the two cases.  
 
-![wind speed histogram]({{ site.baseurl }}/images/station3445-Windrose.png "wind speed histogram")
-![model wind speed histogram]({{ site.baseurl }}/images/station3445-modelWindrose.png "model wind speed histogram")
+![wind speed histogram]({{ site.baseurl }}/images/station3445-windspeedDist.png "wind speed histogram")
+![model wind speed histogram]({{ site.baseurl }}/images/station3445-modelwindspeedDist.png "model wind speed histogram")
 
