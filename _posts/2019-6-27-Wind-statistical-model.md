@@ -12,8 +12,8 @@ This post presents a method for constructing a statistical model to represent th
 
 Wind history statistics describe the typical distribution of the wind speed and wind direction at a particular site. This information can be presented graphically as a wind rose plot and is generated from a meteorological record of wind speed and direction data.
 
-For example, the plot below shows the wind rose at the ‘Wellington Aero meteorological station’. This has been computed from a 10 year record of hourly averaged wind measurements taken at the airport site. The plot shows that the typical wind directions are either northerly or southerly. More specifically, the winds are typically directed in the NNE to NNW segment or the SSE to SSW segment. These directions account for the vast majority of the observational record.
-![wind rose]({{ site.baseurl }}/images/station3445-Windrose.png "wind rose")
+For example, the plot below shows the wind rose at the ‘Wellington Aero meteorological station’. This has been computed from a 13 year record of hourly averaged wind measurements taken at the airport site. The plot shows that the typical wind directions are either northerly or southerly. More specifically, the winds are typically directed in the NNE to NNW segment or the SSE to SSW segment. These directions account for the vast majority of the observational record.
+![wind rose]({{ site.baseurl }}/images/station3445-windRose1.png "wind rose")
 
 The color scaling of the plot shows the distribution of wind speeds for each direction ranging from light (<4m/s) to strong (11-18m/s). Gale wind speeds have been only occasionally recorded at this site and are not apparent in this visualization.
 
@@ -105,14 +105,15 @@ This function generates 1 years worth of wind data (8760 hours).
 
 The quality of the statistical model can be well judged by comparing the observational ‘raw’ wind record against the model. This is shown below. The distribution of velocities and directions is very similar for the two plots. The scaling for the raw data is different because there is a 16 year record whereas the model is normalised for 1 year. The statistical model looks like a very good approximation.
 
-![wind rose]({{ site.baseurl }}/images/station3445-Windrose.png "wind rose")
-![model wind rose]({{ site.baseurl }}/images/station3445-modelWindrose.png "model wind rose")
+| Actual | Model |
+|-------|--------|
+|![wind rose]({{ site.baseurl }}/images/station3445-Windrose.png "wind rose")|![model wind rose]({{ site.baseurl }}/images/station3445-modelWindrose.png "model wind rose")|
 
 A further comparison can be made by ignoring the direction data and comparing only the distribution of wind speeds. This is shown below for the two cases. The model misses some of the fine detail seen in the record or low wind velocities. However the model gives good agreement for all other wind speeds.
 
-
-![wind speed histogram]({{ site.baseurl }}/images/station3445-windspeedDist.png "wind speed histogram")
-![model wind speed histogram]({{ site.baseurl }}/images/station3445-modelwindspeedDist.png "model wind speed histogram")
+| Actual | Model |
+|-------|--------|
+|![wind speed histogram]({{ site.baseurl }}/images/station3445-windspeedDist.png "wind speed histogram")|![model wind speed histogram]({{ site.baseurl }}/images/station3445-modelwindspeedDist.png "model wind speed histogram")|
 
 These plots also show statistics summarising the total day's per year where wind categories occur. This is a good human relatable scale for the data. Again the model gives good agreement to observational record.
 
