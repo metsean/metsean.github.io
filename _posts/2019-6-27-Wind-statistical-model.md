@@ -18,7 +18,7 @@ By eye, the Weibull distribution does a good job of describing the data. The obv
 The statistical model used to generate wind speed and direction data is:
 $$
 \begin{align*}
-  & W = \sum_{i=N}^(direction)\left(v(c_i,loc_i,scale_i)f_i\right)
+  & W = \sum_{i=N}^S\left(v(c_i,loc_i,scale_i)f_iX(i-1,i+1)\right)
 \end{align*}
 $$
 
