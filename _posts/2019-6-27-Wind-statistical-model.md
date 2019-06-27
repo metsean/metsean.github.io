@@ -74,7 +74,7 @@ $$
 \end{align*}
 $$
 
-where $\Theta(i-1,i+1)$ represents random directions in each wind direction bin. E.g. for the northerly bin, the direction angles are randomly distributed between -11.25 and 11.25 degrees bearing.
+where $$\Theta(i-1,i+1)$$ represents random directions in each wind direction bin. E.g. for the northerly bin, the direction angles are randomly distributed between -11.25 and 11.25 degrees bearing.
 
 Random variates can then be generated computationally using the follow function:
 ```python
