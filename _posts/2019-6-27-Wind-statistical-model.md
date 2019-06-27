@@ -2,12 +2,15 @@
 layout: post
 title: Part 1. Building a statistical model for wind speeds and directions
 tags: [statistical modeling, wind]
+categories: [regional wind model]
+excerpt_separator: <!--more-->
+
 
 ---
 
 ## Summary
 
-This post presents a method for constructing a statistical model to represent the wind environment at some particular site. The wind speed and direction record from the 'Wellington Aero' meteorological station is used for this analysis but the method should be generally applicable. This model will be used in Part 3 of this series to describe the reference site and scaled to generate local wind environments.
+This post presents a method for constructing a statistical model to represent the wind environment at some particular site. The wind speed and direction record from the 'Wellington Aero' meteorological station is used for this analysis but the method should be generally applicable.<!--more--> This model will be used in Part 3 of this series to describe the reference site and scaled to generate local wind environments.
 
 
 ## Wind history statistics and the wind rose
