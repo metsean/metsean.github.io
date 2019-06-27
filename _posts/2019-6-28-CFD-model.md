@@ -9,6 +9,8 @@ excerpt_separator: <!--more-->
 
 ## Summary
 
+This post describes the construction of a Compuational Fluid Dynamic (CFD) model of the Wellington region which gives local detail of the windflow around topography. This model will be used in Part 3 of this blog series to scale the refernce site wind distribution and generate local wind environment statistics.<!--more-->
+
 
 ## What's CFD?
 
@@ -37,4 +39,4 @@ For this work we are only interested in wind speeds near the ground surface and 
 
 ![cfd image]({{ site.baseurl }}/images/cfdplot.png "CFD model image")
 
-The surface slices were exported from paraview for the 16 different wind directions. From these datasets python interpolation objects were generated which give bivariate spline approximations to the surface velocity magnitude and direction. This were generated using the scipy package interpolate.RectBivariateSpline class giving for each wind direction functions fVi(x,y) and fthetai(x,y) which described the velocity magnitude and direction at location coordinates x, y. 
+The surface slices were exported from paraview for the 16 different wind directions. From these datasets python interpolation objects were generated which give bivariate spline approximations to the surface velocity magnitude and direction. This were generated using the scipy package interpolate.RectBivariateSpline class giving for each wind direction functions _fVi(x,y)_ and _fthetai(x,y)_ which described the velocity magnitude and direction at location coordinates _x,y_. 
