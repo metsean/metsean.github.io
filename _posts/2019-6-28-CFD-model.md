@@ -40,4 +40,4 @@ For this work we are only interested in wind speeds near the ground surface and 
 
 ![cfd image]({{ site.baseurl }}/images/cfdplot.png "CFD model image")
 
-The surface slices were exported from paraview for the 16 different wind directions. From these datasets python interpolation objects were generated which give bivariate spline approximations to the surface velocity magnitude and direction. This were generated using the scipy package interpolate.RectBivariateSpline class giving for each wind direction functions _fVi(x,y)_ and _fthetai(x,y)_ which described the velocity magnitude and direction at location coordinates _x,y_. 
+The surface slices were exported from paraview for the 16 different wind directions. From these datasets python interpolation objects were generated which give bivariate spline approximations to the surface velocity magnitude and direction. This were generated using the scipy package interpolate.RectBivariateSpline class giving for each wind direction functions $$fV_i(x,y)$$ and $$ftheta_i(x,y)$$ which described the velocity magnitude and direction at location coordinates _x,y_. 
