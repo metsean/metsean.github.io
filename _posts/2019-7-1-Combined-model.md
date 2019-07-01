@@ -74,7 +74,7 @@ The report only displays data of expected hourly averaged wind distributions. Th
 
 ## Sharing the model
 
-The model is free to use and publicly accessible here: http://www.metsean.xyz/regModel/-41.2936,174.776050
+The model is free to use and publicly accessible here: [http://www.metsean.xyz/regModel/-41.2936,174.776050](http://www.metsean.xyz/regModel/-41.2936,174.776050)
 The virtual machine hosting this is not very powerful and the queries take around 10s to return. 
 
 The API is pretty obvious - edit the url to set the latitude and longitude coordinates to the site of interest. The long term plan is to have a click able map which queries the model and generates the report. I will also look into alternative hosts for the model so that it runs faster. Or make all the code and model data available.
