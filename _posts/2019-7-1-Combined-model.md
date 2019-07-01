@@ -10,19 +10,19 @@ excerpt_separator: <!--more-->
 
 ## Summary
 
-This post describes the combination of a statistical model of the wind distribution at reference site (from post 1) with a regional model of terrain effects (from post 2) to generate wind expectancy statistics for any site. <!--more-->
+This post describes the combination of a statistical model of the wind distribution at reference site (from part 1) with a regional model of terrain effects (from part 2) to generate wind expectancy statistics for any site. <!--more-->
 
 ## Formulation of the model
 
 The wind distribution at location coordinates _x,y_ is given by:
 $$
 \begin{align*}
-  & W(x,y) = \sum_{i=N}^S\left(v(c_i,loc_i,scale_i)f_i\frac{v_i(x,y)}{v_i(x_0,y_0)},\Theta(i-1,i+1)+\theta(x,y)-\theta(x_0,y_0)\right)
+  & W(x,y) = \sum_{i=N}^S\left(v(c_i,loc_i,scale_i)f_i\frac{fv_i(x,y)}{fv_i(x_0,y_0)},\Theta(i-1,i+1)+f\theta(x,y)-f\theta(x_0,y_0)\right)
 \end{align*}
 $$
 where $$x_0$$ and $$y_0$$ are the coordinates of the reference site.
 
-This might look complicated but it is only a small jump from the statistical model presented in post 1. Here, for each wind direction the velocity distribution from the reference site is weighted by the occurance of that wind direction $$f_i$$ and then scaled by $$v_i(x,y)/v_i(x_0,y_0)$$ - the ratio of velocites of the 2 sites. The wind direction is the second part of the equation - now the distribution of the wind angles for the wind direction bin $$\Theta(i-1,i+1)$$ is adjusted by $$\theta(x,y)-\theta(x_0,y_0)$$ to give a local correction for the site.
+This might look complicated but it is only a small jump from the statistical model presented in post 1. Here, for each wind direction the velocity distribution from the reference site is weighted by the occurance of that wind direction $$f_i$$ and then scaled by $$fv_i(x,y)/fv_i(x_0,y_0)$$ - the ratio of velocites of the 2 sites. The wind direction is the second part of the equation - now the distribution of the wind angles for the wind direction bin $$\Theta(i-1,i+1)$$ is adjusted by $$f\theta(x,y)-f\theta(x_0,y_0)$$ to give a local correction for the site.
 
 The Python implementation of the model is shown below.
 ```python
