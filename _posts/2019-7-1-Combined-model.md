@@ -23,3 +23,15 @@ $$
 where $$x_0$$ and $$y_0$$ are the coordinates of the reference site.
 
 This might look complicated but it is only a small jump from the statistical model presented in post 1. Here, for each wind direction the velocity distribution from the reference site is weighted by the occurance of that wind direction $$f_i$$ and then scaled by $$v_i(x,y)/v_i(x_0,y_0)$$ - the ratio of velocites of the 2 sites. The wind direction is the second part of the equation - now the distribution of the wind angles for the wind direction bin $$\Theta(i-1,i+1)$$ is adjusted by $$\theta(x,y)-\theta(x_0,y_0)$$ to give a local correction for the site.
+
+## Testing the model
+
+Let's try out the combined model on some sites around Wellington. Presented here are 
+
+| Site 1 : Wellington CBD |
+|![report]({{ site.baseurl }}/images/sim-41.2935_174.7761.png "CBD wind estimate")|
+| Site 2: Brooklyn wind turbine site |
+|![report]({{ site.baseurl }}/images/sim-41.3111_174.7448.png "wind turbine estimate")|
+| Site 3: Hawkins hill |
+|![report]({{ site.baseurl }}/images/sim-41.3293_174.7262.png "wind turbine estimate")|
+
