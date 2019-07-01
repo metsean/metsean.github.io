@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Part 3. Generating local wind expectancy statistics from a reference windrose and a regional CFD model
+title: Regional wind model part 3 - Generating local wind expectancy statistics from a reference wind rose and a regional CFD model
 tags: [statistical modeling, CFD, wind]
 categories: [regional wind model]
 image: sim-41.3293_174.7262.png
@@ -10,7 +10,7 @@ excerpt_separator: <!--more-->
 
 ## Summary
 
-This post describes the combination of a statistical model of the wind distribution at reference site with a regional model of terrain effects to generate wind expectancy statistics for any site. <!--more-->
+This post describes the combination of a statistical model of the wind distribution at reference site (from post 1) with a regional model of terrain effects (from post 2) to generate wind expectancy statistics for any site. <!--more-->
 
 ## Formulation of the model
 
@@ -75,6 +75,5 @@ The report only displays data of expected hourly averaged wind distributions. Th
 ## Sharing the model
 
 The model is free to use and publicly accessible here: [http://www.metsean.xyz/regModel/-41.2936,174.776050](http://www.metsean.xyz/regModel/-41.2936,174.776050)
-The virtual machine hosting this is not very powerful and the queries take around 10s to return. 
 
-The API is pretty obvious - edit the url to set the latitude and longitude coordinates to the site of interest. The long term plan is to have a click able map which queries the model and generates the report. I will also look into alternative hosts for the model so that it runs faster. Or make all the code and model data available.
+The API is pretty obvious - edit the url to set the latitude and longitude coordinates to the site of interest. The long term plan is to have a click able map which queries the model and generates the report. I will also look into alternative hosts for the model so that it runs faster. Or make all the code and model data available so it can be run locally.

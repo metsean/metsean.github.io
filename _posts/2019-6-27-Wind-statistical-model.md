@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Part 1. Building a statistical model for wind speeds and directions
+title: Regional wind model part 1 - Building a statistical model for wind speeds and directions
 tags: [statistical modeling, wind]
 categories: [regional wind model]
 image: station3445-modelWindrose.png

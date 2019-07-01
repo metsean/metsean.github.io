@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Part 2. Building a model of local wind effects
+title: Regional wind model part 2 - Building a model of local wind effects
 tags: [CFD, wind]
 categories: [regional wind model]
 image: cfdplot.png
