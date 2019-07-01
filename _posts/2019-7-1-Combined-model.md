@@ -54,7 +54,7 @@ The model output is used to generate a customised report for the particular site
 
 ## Testing the model
 
-Let's try out the combined model on some sites around Wellington. Presented here are 
+Let's try out the combined model on some sites around Wellington. Shown below are wind expectancies for a sheltered site in the downtown CBD, and 2 exposed sites on the southern hills of Wellington.
 
 | Site 1 : Wellington CBD |
 |![report]({{ site.baseurl }}/images/sim-41.2935_174.7761.png "CBD")|
@@ -62,6 +62,10 @@ Let's try out the combined model on some sites around Wellington. Presented here
 |![report]({{ site.baseurl }}/images/sim-41.3111_174.7448.png "wind turbine")|
 | Site 3: Hawkins hill |
 |![report]({{ site.baseurl }}/images/sim-41.3293_174.7262.png "Hawkins hill")|
+
+## Further work
+
+
 
 
 ## Sharing the model
