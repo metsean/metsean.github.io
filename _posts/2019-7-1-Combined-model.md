@@ -10,7 +10,7 @@ excerpt_separator: <!--more-->
 
 ## Summary
 
-This post describes the combination of a statiscal model of the wind distribution at reference site with a regional model of terrain effects to generate wind expectancy statistics for any site. <!--more-->
+This post describes the combination of a statistical model of the wind distribution at reference site with a regional model of terrain effects to generate wind expectancy statistics for any site. <!--more-->
 
 ## Formulation of the model
 
@@ -27,27 +27,25 @@ This might look complicated but it is only a small jump from the statistical mod
 The Python implementation of the model is shown below.
 ```python
 for a,w in enumerate(angwords):
-        # get statistical model parameters from dictionary
- dists= windModel[w] 
-        (c, loc, scale) = dists[0:3]
-        occurrence=dists[3]
-        # generate windspeeds
-        vel=weibull_min.rvs(c, loc, scale, size=int(occurrence*8760))
-        # gernate wind directions (random in angle bin)
-        theta=angbins[a]+(angbins[a+1]-angbins[a])*np.random.random(size=int(dists[3]*8760))        
-        # load cfd models
-        with open('fv'+w+'.pOBJ', "rb") as f:fv=pickle.load(f,)
-        with open('ftheta'+w+'.pOBJ', "rb") as f:ftheta=pickle.load(f,)
-        
-        # scale by cfd models
-        vel=vel*fv(yy,xx)/fv(y00,x00)
-        dirn=dirn + (ftheta(yy,xx)-ftheta(y00,x00))
-        #wrap around correction
-        dirn[dirn>360]-=360
-        dirn[dirn<angbins[0]]+=360
-        data_all=np.vstack((data_all,(np.vstack((dirn,vel)).T)))
+    # get statistical model parameters from dictionary
+		dists= windModel[w] 
+    (c, loc, scale) = dists[0:3]
+    occurrence=dists[3]
+    # generate windspeeds
+    vel=weibull_min.rvs(c, loc, scale, size=int(occurrence*8760))
+    # gernate wind directions (random in angle bin)
+    theta=angbins[a]+(angbins[a+1]-angbins[a])*np.random.random(size=int(dists[3]*8760))        
+    # load cfd models
+    with open('fv'+w+'.pOBJ', "rb") as f:fv=pickle.load(f,)
+    with open('ftheta'+w+'.pOBJ', "rb") as f:ftheta=pickle.load(f,)
     
-    data_all=data_all[1:,:]
+    # scale by cfd models
+    vel=vel*fv(y,x)/fv(y0,x0)
+    dirn=dirn + (ftheta(y,x)-ftheta(y0,x0))
+    # angle wrap around correction
+    dirn[dirn>360]-=360
+    dirn[dirn<angbins[0]]+=360
+    data_all=np.vstack((data_all,(np.vstack((dirn,vel)).T)))    
 ```
 
 Note that this will run much faster with all the CFD model functions loaded in memory. Shown above is a low memory implementation of the code which allows it to run on a small web server.
