@@ -28,7 +28,7 @@ The Python implementation of the model is shown below.
 ```python
 for a,w in enumerate(angwords):
     # get statistical model parameters from dictionary
-		dists= windModel[w] 
+	dists= windModel[w] 
     (c, loc, scale) = dists[0:3]
     occurrence=dists[3]
     # generate windspeeds
@@ -65,7 +65,11 @@ Let's try out the combined model on some sites around Wellington. Shown below ar
 
 ## Further work
 
+The accuracy of this model needs to be explored and validated by comparing it's output to other observational stations. The Kelburn Auotmatic weather station run by the metservice would be good candidate for this comparison. There will be a long record available for this site, it is located centrally within this model and the terrain is very different to the Wellington Aero site. It is expected that the model becomes less accurate for positions further from the observation station. If this is the case then the model could be improved by having an adaptive reference site which is set to the closest reference site.
 
+It is also expected that the model will become less accurate around the edges of the CFD model. Some work is required to identify the extent of this region and it would be helpful if the model software implementation warned of queries within this region.
+
+The report only displays data of expected hourly averaged wind distributions. This work could be extended by estimating wind gusts. The CFD model includes all the turbulent air properties. Gusts are described by the turbulent kinetic energy and it should be possible to back them out from the model data. This would be very useful as the maximum wind at a site will be as a gust and therefor the key variable describing the environment.
 
 
 ## Sharing the model
