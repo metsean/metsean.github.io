@@ -24,14 +24,51 @@ where $$x_0$$ and $$y_0$$ are the coordinates of the reference site.
 
 This might look complicated but it is only a small jump from the statistical model presented in post 1. Here, for each wind direction the velocity distribution from the reference site is weighted by the occurance of that wind direction $$f_i$$ and then scaled by $$v_i(x,y)/v_i(x_0,y_0)$$ - the ratio of velocites of the 2 sites. The wind direction is the second part of the equation - now the distribution of the wind angles for the wind direction bin $$\Theta(i-1,i+1)$$ is adjusted by $$\theta(x,y)-\theta(x_0,y_0)$$ to give a local correction for the site.
 
+The Python implementation of the model is shown below.
+```python
+for a,w in enumerate(angwords):
+        # get statistical model parameters from dictionary
+ dists= windModel[w] 
+        (c, loc, scale) = dists[0:3]
+        occurrence=dists[3]
+        # generate windspeeds
+        vel=weibull_min.rvs(c, loc, scale, size=int(occurrence*8760))
+        # gernate wind directions (random in angle bin)
+        theta=angbins[a]+(angbins[a+1]-angbins[a])*np.random.random(size=int(dists[3]*8760))        
+        # load cfd models
+        with open('fv'+w+'.pOBJ', "rb") as f:fv=pickle.load(f,)
+        with open('ftheta'+w+'.pOBJ', "rb") as f:ftheta=pickle.load(f,)
+        
+        # scale by cfd models
+        vel=vel*fv(yy,xx)/fv(y00,x00)
+        dirn=dirn + (ftheta(yy,xx)-ftheta(y00,x00))
+        #wrap around correction
+        dirn[dirn>360]-=360
+        dirn[dirn<angbins[0]]+=360
+        data_all=np.vstack((data_all,(np.vstack((dirn,vel)).T)))
+    
+    data_all=data_all[1:,:]
+```
+
+Note that this will run much faster with all the CFD model functions loaded in memory. Shown above is a low memory implementation of the code which allows it to run on a small web server.
+
+The model output is used to generate a customised report for the particular site which includes a wind rose, a wind speed histogram and an intensity plot which shows how the site compares to the surrounding terrain in terms of overall windiness.
+
 ## Testing the model
 
 Let's try out the combined model on some sites around Wellington. Presented here are 
 
 | Site 1 : Wellington CBD |
-|![report]({{ site.baseurl }}/images/sim-41.2935_174.7761.png "CBD wind estimate")|
+|![report]({{ site.baseurl }}/images/sim-41.2935_174.7761.png "CBD")|
 | Site 2: Brooklyn wind turbine site |
-|![report]({{ site.baseurl }}/images/sim-41.3111_174.7448.png "wind turbine estimate")|
+|![report]({{ site.baseurl }}/images/sim-41.3111_174.7448.png "wind turbine")|
 | Site 3: Hawkins hill |
-|![report]({{ site.baseurl }}/images/sim-41.3293_174.7262.png "wind turbine estimate")|
+|![report]({{ site.baseurl }}/images/sim-41.3293_174.7262.png "Hawkins hill")|
 
+
+## Sharing the model
+
+The model is free to use and publicly accessible here: http://www.metsean.xyz/regModel/-41.2936,174.776050
+The virtual machine hosting this is not very powerful and the queries take around 10s to return. 
+
+The API is pretty obvious - edit the url to set the latitude and longitude coordinates to the site of interest. The long term plan is to have a click able map which queries the model and generates the report. I will also look into alternative hosts for the model so that it runs faster. Or make all the code and model data available.
