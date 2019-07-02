@@ -10,7 +10,7 @@ excerpt_separator: <!--more-->
 
 ## Summary
 
-This post describes the combination of a statistical model of the wind distribution at reference site (from part 1) with a regional model of terrain effects (from part 2) to generate wind expectancy statistics for any site. <!--more-->
+This post describes the combination of a statistical model of the wind distribution at reference site (derived in [post 1]({{ site.baseurl }}/2019-6-27-Wind-statistical-model)) with a regional model of terrain effects ([post 2]({{ site.baseurl }}/2019-6-27-Wind-statistical-model) to generate wind expectancy statistics for any site. <!--more-->
 
 ## Formulation of the model
 
