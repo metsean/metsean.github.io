@@ -10,7 +10,7 @@ excerpt_separator: <!--more-->
 
 ## Summary
 
-This post describes the combination of a statistical model of the wind distribution at a reference site (derived in [post 1]({{ site.baseurl }}/2019-6-27-Wind-statistical-model)) with a regional model of terrain effects ([post 2]({{ site.baseurl }}/2019-6-27-Wind-statistical-model) to generate wind expectancy statistics for any site. <!--more-->
+This post describes the combination of a statistical model of the wind distribution at a reference site (derived in [post 1]({{ site.baseurl }}/Wind-statistical-model)) with a regional model of terrain effects ([post 2]({{ site.baseurl }}/CFD-model) to generate wind expectancy statistics for any site. <!--more-->
 
 ## Formulation of the model
 
@@ -50,7 +50,7 @@ for a,w in enumerate(angwords):
 
 Note that this will run much faster with all the CFD model functions loaded in memory. Shown above is a low memory implementation of the code which allows it to run on a small web server.
 
-The model output is used to generate a customised report for the particular site which includes a wind rose, a wind speed histogram and an 'amplification map' which shows how the site compares to the surrounding terrain in terms of overall windiness. The map is the sum of $$f_i\timesfv_i(x_0,y_0)$$ 
+The model output is used to generate a customised report for the particular site which includes a wind rose, a wind speed histogram and an 'amplification map' which shows how the site compares to the surrounding terrain in terms of overall windiness. The map is the sum of $$f_i\timesfv_i(x_0,y_0)$$. 
 
 ## Testing the model
 
@@ -65,11 +65,11 @@ Let's try out the combined model on some sites around Wellington. Shown below ar
 
 ## Further work
 
-The accuracy of this model needs to be explored and validated by comparing it's output to other observational stations. The Kelburn Auotmatic weather station run by the metservice would be good candidate for this comparison. There will be a long record available for this site, it is located centrally within this model and the terrain is very different to the Wellington Aero site. It is expected that the model becomes less accurate for positions further from the observation station. If this is the case then the model could be improved by having an adaptive reference site which is set to the closest reference site.
+The accuracy of this model needs to be explored and validated by comparing it's output to other observational stations. The Kelburn Auotmatic weather station run by the Metservice would be good candidate for this comparison. There will be a long record available for this site, it is located centrally within this model and the terrain is very different to the Wellington Aero site. It is expected that the model becomes less accurate for positions further from the observation station. If this is the case then the model could be improved by having an adaptive reference site which is set to the closest reference site.
 
 It is also expected that the model will become less accurate around the edges of the CFD model. Some work is required to identify the extent of this region and it would be helpful if the model software implementation warned of queries within this region.
 
-The report only displays data of expected hourly averaged wind distributions. This work could be extended by estimating wind gusts. The CFD model includes all the turbulent air properties. Gusts are described by the turbulent kinetic energy and it should be possible to back them out from the model data. This would be very useful as the maximum wind at a site will be as a gust and therefor the key variable describing the environment.
+The report only displays data of expected hourly averaged wind distributions. This work could be extended by estimating wind gusts. The CFD model includes all the turbulent air properties. Gusts are described by the turbulent kinetic energy and it should be possible to back them out from the model data. This would be very useful as the maximum wind at a site will be as a gust and therefor a key variable describing the environment.
 
 
 ## Sharing the model
