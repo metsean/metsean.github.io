@@ -8,4 +8,4 @@ This is my personal portfolio page where I share projects and ideas about intere
 
 ### Contact me
 
-[seantbuchanan@gmail.com](mailto:seantbuchanana@gmail.com)
+[seantbuchanan@gmail.com](mailto:seantbuchanan@gmail.com)
