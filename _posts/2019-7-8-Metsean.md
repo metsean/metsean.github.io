@@ -46,7 +46,7 @@ This metsean application interacts with the RDS databases allowing the user to q
 
 At this stage only scoring of the rain forecast has been implemented. The rain forecast data, which is conveyed in slightly different ways for each forecaster, is first converted to a binary rain/no rain prediction. The 
 
-|  | Metservice | Niwa | yr.no | Weather Channel |
+| condition | Metservice | Niwa | yr.no | Weather Channel |
 |-------|--------|--------|--------|--------|
 |rain if | forecast text mentions showers, rain, drizzle, sleet, or snow | rain > 0mm | rain > 0mm | POP > 20 |
 <!-- For the Metservice the prediction comes from the forecast text - if showers, rain, drizzle, sleet, or snow are mentioned then the forecast is considered to predict rain. For Niwa and yr.no the forecasted precipitation is given in mm - forcasts predicting totals > 0mm are considered predictions of rain. The weather.com forecasts give a probability of precipitation - values > 10 are considered predictions of rain. Rain is considered to have occurred if any of the observation stations recorded a total > 0mm.  -->
