@@ -44,23 +44,7 @@ A goal for this project was to build a public front end so that interested peopl
 
 This metsean application interacts with the RDS databases allowing the user to query the forecast and observation history. The text forecasts are presented in a tabular form.
 
-At this stage only scoring of the rain forecast has been implemented. The rain forecast data, which is conveyed in slightly different ways for each forecaster, is first converted to a binary rain/no rain prediction. The 
-
-| Priority apples | Second priority | Third priority |
-|-------|--------|---------|
-| ambrosia | gala | red delicious |
-| pink lady | jazz | macintosh |
-| honeycrisp | granny smith | fuji |
-
-| Condition | Metservice | Niwa |
-|-------|--------|---------|
-| rain if | gala | red delicious |
-
-
-| condition | Metservice | Niwa | yr.no | Weather Channel |
-|-------|--------|--------|--------|--------|
-|rain if | forecast text mentions showers, rain, drizzle, sleet, or snow | rain > 0mm | rain > 0mm | POP > 20 |
-<!-- For the Metservice the prediction comes from the forecast text - if showers, rain, drizzle, sleet, or snow are mentioned then the forecast is considered to predict rain. For Niwa and yr.no the forecasted precipitation is given in mm - forcasts predicting totals > 0mm are considered predictions of rain. The weather.com forecasts give a probability of precipitation - values > 10 are considered predictions of rain. Rain is considered to have occurred if any of the observation stations recorded a total > 0mm.  -->
+At this stage only scoring of the rain forecast has been implemented. The rain forecast data, which is conveyed in slightly different ways for each forecaster, is first converted to a binary rain/no rain prediction. For the Metservice the prediction comes from the forecast text - if showers, rain, drizzle, sleet, or snow are mentioned then the forecast is considered to predict rain. For Niwa and yr.no the forecasted precipitation is given in mm - forcasts predicting totals > 0mm are considered predictions of rain. The weather.com forecasts give a probability of precipitation and values > 10 are considered predictions of rain. Rain is considered to have occurred if any of the observation stations recorded a total > 0mm.
 
 The forecast is scored by judging the binary rain prediction against the binary rain observation. The forecast scores as correct if rain is predicted and rain is observed or rain is not predicted and rain is observed. Other cases count as an incorrect forecast.
 
