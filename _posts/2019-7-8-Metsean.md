@@ -46,6 +46,17 @@ This metsean application interacts with the RDS databases allowing the user to q
 
 At this stage only scoring of the rain forecast has been implemented. The rain forecast data, which is conveyed in slightly different ways for each forecaster, is first converted to a binary rain/no rain prediction. The 
 
+| Priority apples | Second priority | Third priority |
+|-------|--------|---------|
+| ambrosia | gala | red delicious |
+| pink lady | jazz | macintosh |
+| honeycrisp | granny smith | fuji |
+
+| Condition | Metservice | Niwa |
+|-------|--------|---------|
+| rain if | gala | red delicious |
+
+
 | condition | Metservice | Niwa | yr.no | Weather Channel |
 |-------|--------|--------|--------|--------|
 |rain if | forecast text mentions showers, rain, drizzle, sleet, or snow | rain > 0mm | rain > 0mm | POP > 20 |
