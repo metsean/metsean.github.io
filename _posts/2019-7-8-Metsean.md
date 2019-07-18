@@ -10,7 +10,7 @@ excerpt_separator: <!--more-->
 
 ## Summary
 
-This project investigated the accuracy of the long range weather forecast. <!--more-->
+This project investigated the accuracy of the long range weather forecast. The data, results and analysis are publicly viewable at [www.metsean.xyz](http://www.metsean.xyz). <!--more-->
 
 ## Motivation
 
@@ -32,11 +32,11 @@ The goal of this project is to quantify the statistical accuracy of these foreca
 
 ## Obtaining Data
 
-The project runs on an AWS-ec2 t2.micro Ubuntu virtual machine. A number of Python scripts run automatically as chron jobs every day and scrape the forecast data for all available days from the different forecasters websites. For some of the providers there is a public API that makes the forecast data easily obtainable. The Metservice data was the hardest to get and I needed to resort to parsing the html of the site to extract the relevant data.
+The project runs on an AWS-ec2 t2.micro Ubuntu virtual machine. A number of Python scripts run automatically as chron jobs every day and scrape the forecast data for all available days from the different forecasters websites. For some of the providers there is a public API that makes the forecast data easily obtainable. The Metservice data was the hardest to extract and required direct parsing of the html.
 
-The forecasts need to be judged against what the weather actually was. For this the observed weather at a number of different meteorological stations in each region was scraped from the the Metservice forecast pages.
+The forecasts need to be judged against what the weather actually was. To allow for this comparison the observed weather at a number of different meteorological stations in each region was also recorded. This was scraped from the the Metservice forecast pages.
 
-All of the forecast and observation data was logged into an AWS RDS database. This data collection phase has been running for over a year now and there is a nice size data set ready for some analysis.
+All of the forecast and observation data was logged into an AWS RDS database. This data collection phase has been running since mid 2018 and there is a nice size data set ready for some analysis.
 
 ## Data Analysis
 
@@ -44,7 +44,14 @@ A goal for this project was to build a public front end so that interested peopl
 
 This metsean application interacts with the RDS databases allowing the user to query the forecast and observation history. The text forecasts are presented in a tabular form.
 
-At this stage only scoring of the rain forecast has been implemented. The rain forecast data is conveyed in slightly different ways for each forecaster. For the Metservice the prediction comes from the forecast text - if showers, rain, drizzle, sleet, or snow is mentioned then the forecast is considered to predict rain. For Niwa and yr.no the forecasted precipitation is given in mm - forcasts predicting total >0mm are considered predictions of rain. The weather.com forecasts give a probability of precipitation - values >10 are considered predictions of rain. Rain is considered to have occurred if any of the observation stations recorded a total >0mm. The forecast is scored by judging the binary rain prediction against the binary rain observation. The forecast scores as correct if rain is predicted and rain is observed or rain is not predicted and rain is observed. Other cases count as an incorrect forecast.
+At this stage only scoring of the rain forecast has been implemented. The rain forecast data, which is conveyed in slightly different ways for each forecaster, is first converted to a binary rain/no rain prediction. The 
+
+|  | Metservice | Niwa | yr.no | Weather Channel |
+|-------|--------|--------|--------|--------|
+|rain if | forecast text mentions showers, rain, drizzle, sleet, or snow | rain > 0mm | rain > 0mm | POP > 20 |
+<!-- For the Metservice the prediction comes from the forecast text - if showers, rain, drizzle, sleet, or snow are mentioned then the forecast is considered to predict rain. For Niwa and yr.no the forecasted precipitation is given in mm - forcasts predicting totals > 0mm are considered predictions of rain. The weather.com forecasts give a probability of precipitation - values > 10 are considered predictions of rain. Rain is considered to have occurred if any of the observation stations recorded a total > 0mm.  -->
+
+The forecast is scored by judging the binary rain prediction against the binary rain observation. The forecast scores as correct if rain is predicted and rain is observed or rain is not predicted and rain is observed. Other cases count as an incorrect forecast.
 
 For days prior to the present day the observations can be viewed on the region pages. Correct rain forecasts are indicated by a green cell shading in the forecast table.
 
