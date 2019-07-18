@@ -42,7 +42,7 @@ All of the forecast and observation data was logged into an AWS RDS database. Th
 
 ## Data Analysis
 
-A goal for this project was to build a public front end so that interested people could look back on the forecast history and to see how my scoring was done. A web application was built using the [Python Flask framework](http://flask.pocoo.org/). This is publicly viewable at [www.metsean.xyz](www.metsean.xyz).
+A goal for this project was to build a public front end so that interested people could look back on the forecast history and to see how my scoring was done. A web application was built using the [Python Flask framework](http://flask.pocoo.org/). This is publicly viewable at [www.metsean.xyz](http://www.metsean.xyz).
 
 This metsean application interacts with the RDS databases allowing the user to query the forecast and observation history. The text forecasts are presented in a tabular form.
 
