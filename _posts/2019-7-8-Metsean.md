@@ -3,7 +3,7 @@ layout: post
 title: Monitoring the accuracy of the long range weather forecast
 tags: [forecasting, weather, accuracy]
 categories: [data]
-image: 
+image: Wellington.png
 excerpt_separator: <!--more-->
 
 ---
@@ -22,7 +22,7 @@ The question of the weather forecast accuracy is also a fascintating topic - par
 
 By 'long term forecast' I mean rain, wind and temperature predictions projected out to around 10days from the present. An example for Wellington city provided by the Metservice is shown below.
 
-metservice2019-07-08.png
+![metservice10day]({{ site.baseurl }}/images/metservice2019-07-08.png "Metservice 10day forecast")
 
 For days nearer to the present the text forecast is quite specific and includes the variation expected over the course of the day. The text forecast becomes less specific for predictions further into the future and simplifies to esentially a binary prediction of the rain and wind. The summary also comes with the notification that days beyond 6 are the straight model output and there is no moderation by a meteorologist. 
 
