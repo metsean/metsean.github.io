@@ -20,17 +20,15 @@ The question of the weather forecast accuracy is also a fascintating topic - par
 
 ## The Project Scope
 
-By 'long term forecast' I mean rain, wind and temperature predictions projected out to around 10days from the present. An example for Wellington city provided by the Metservice is shown below.
+By 'long term forecast' I mean rain, wind and temperature predictions projected out to around 10 days from the present. An example for Wellington city provided by the Metservice is shown below.
 
 ![metservice10day]({{ site.baseurl }}/images/metservice2019-07-08.png "Metservice 10day forecast")
 
-For days nearer to the present the text forecast is quite specific and includes the variation expected over the course of the day. The text forecast becomes less specific for predictions further into the future and simplifies to esentially a binary prediction of the rain and wind. The summary also comes with the notification that days beyond 6 are the straight model output and there is no moderation by a meteorologist. 
+For days nearer to the present the text forecast is quite specific and includes the variation expected over the course of the day. The text forecast becomes less specific for predictions further into the future. The summary comes with the warning that beyond day 6 the forecasts are the direct model output and there is no moderation by a meteorologist. 
 
-My intuition tells me that the forecasts are initially quite accurate but become less so as they look further into the future. By days 8-9 I would doubt the accuracy of the forecast and not have the confidence to make any decisions based on the predictions.
+My intuition tells me that the forecasts are initially quite accurate but become less so as they project further into the future. By days 8-9 I would doubt the accuracy of the forecast and not have the confidence to make any decisions based on the predictions.
 
-The first goal of this project is to quantify the statistical accuracy of these forecast predictions against time to determine at what point it becomes not useful (if indeed it does). The second part is to investigate whether any of the forecast providers are more accurate than the others. The [Metservice](www.metservice.co.nz), [Niwa](https://weather.niwa.co.nz/), [yr.no](www.yr.no) and the [Weather Channel](https://weather.com/) will be compared. 
-
-The investigation will be for just the main cities of New Zealand; Auckland, Wellington and Christchurch.
+The goal of this project is to quantify the statistical accuracy of these forecast predictions against time and to determine at what point they become not useful (if indeed they do). The forecasts provided by the [Metservice](www.metservice.co.nz), [Niwa](https://weather.niwa.co.nz/), [yr.no](www.yr.no) and the [Weather Channel](https://weather.com/) will be compared in this analysis. The investigation will be for just the main cities of New Zealand; Auckland, Wellington and Christchurch.
 
 ## Obtaining Data
 
