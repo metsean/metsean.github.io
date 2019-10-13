@@ -50,7 +50,7 @@ for a,w in enumerate(angwords):
 
 Note that this will run much faster with all the CFD model functions loaded in memory. Shown above is a low memory implementation of the code which allows it to run on a small web server.
 
-The model output is used to generate a customised report for the particular site which includes a wind rose, a wind speed histogram and an 'amplification map' which shows how the site compares to the surrounding terrain in terms of overall windiness. The map is the sum of $$f_i\timesfv_i(x_0,y_0)$$. 
+The model output is used to generate a customised report for the particular site which includes a wind rose, a wind speed histogram and an 'amplification map' which shows how the site compares to the surrounding terrain in terms of overall windiness. The map is the sum of $$f_i{\times}fv_i(x_0,y_0)$$. 
 
 ## Testing the model
 
